@@ -84,8 +84,8 @@ function (_Component) {
         reduxMiddleware = _init$call.reduxMiddleware;
 
     var composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
-    _this.store = (0, _redux.createStore)(reducer, initialState, composeEnhancers(_redux.applyMiddleware.apply(void 0, _toConsumableArray(reduxMiddleware))));
-    _this.provider = createProvider(storeKey);
+    _this.store = (0, _redux.createStore)(reducer, initialState, composeEnhancers(_redux.applyMiddleware.apply(void 0, _toConsumableArray(reduxMiddleware)))); // this.provider = createProvider(storeKey);
+
     _this.storeListener = new _listenerUtils.StoreListener(_this.store);
     (0, _lodash.default)(_this.listeners, function (listener, name) {
       _this.storeListener.addListener(listener, name, {
