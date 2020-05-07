@@ -1,5 +1,5 @@
 {
-  "name": "griddle-react",
+  "name": "griddle-react-support-redux7",
   "version": "1.14.0",
   "description": "A fast and flexible grid component for React",
   "keywords": [
@@ -110,6 +110,6 @@
       "./test/helpers/setupTest.js"
     ]
   },
-  "author": "Ryan Lanciaux & Joel Lanciaux",
+  "author": "",
   "license": "MIT"
 }

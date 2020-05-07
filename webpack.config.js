@@ -11,7 +11,7 @@ module.exports = {
     filename: 'griddle.js',
     publicPath: '/build/',
     library: 'Griddle',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
@@ -20,17 +20,18 @@ module.exports = {
         use: {
           loader: 'babel-loader?cacheDirectory',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/plugin-proposal-class-properties'],
+          },
         },
-        exclude: ['/node_modules/', '/stories/', '/storybook-static/']
-      }
-    ]
+        exclude: ['/node_modules/', '/stories/', '/storybook-static/'],
+      },
+    ],
   },
   plugins: [
     new LodashModuleReplacementPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new UglifyJsPlugin()
+    new UglifyJsPlugin(),
   ],
   externals: [
     {
@@ -38,8 +39,8 @@ module.exports = {
         root: 'React',
         commonjs2: 'react',
         commonjs: 'react',
-        amd: 'react'
-      }
-    }
-  ]
+        amd: 'react',
+      },
+    },
+  ],
 };

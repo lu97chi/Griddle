@@ -11,27 +11,27 @@ export const mergeConnectParametersWithOptions = (
     mapStateFromProps,
     mapDispatchFromProps,
     mergeProps,
-    options
+    options,
   ] = originalConnect;
 
   return [
     mapStateFromProps,
     mapDispatchFromProps,
     mergeProps,
-    { ...options, ...newOptions }
+    { ...options, ...newOptions },
   ];
 };
 
-const griddleConnect = (...connectOptions) => OriginalComponent =>
+const griddleConnect = (...connectOptions) => (OriginalComponent) =>
   class extends React.Component {
     static contextTypes = {
-      storeKey: PropTypes.string
+      storeKey: PropTypes.string,
     };
 
     constructor(props, context) {
       super(props, context);
       const newOptions = mergeConnectParametersWithOptions(connectOptions, {
-        storeKey: context.storeKey
+        // storeKey: context.storeKey
       });
       this.ConnectedComponent = connect(...newOptions)(OriginalComponent);
     }

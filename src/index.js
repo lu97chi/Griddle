@@ -3,9 +3,9 @@ import {
   combineReducers,
   bindActionCreators,
   applyMiddleware,
-  compose
+  compose,
 } from 'redux';
-import { createProvider } from 'react-redux';
+import { Provider } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import forIn from 'lodash.forin';
@@ -23,7 +23,7 @@ class Griddle extends Component {
     events: PropTypes.object,
     selectors: PropTypes.object,
     storeKey: PropTypes.string,
-    storeListener: PropTypes.object
+    storeListener: PropTypes.object,
   };
 
   constructor(props) {
@@ -49,7 +49,7 @@ class Griddle extends Component {
     forIn(this.listeners, (listener, name) => {
       this.storeListener.addListener(listener, name, {
         events: this.events,
-        selectors: this.selectors
+        selectors: this.selectors,
       });
     });
   }
@@ -82,7 +82,7 @@ class Griddle extends Component {
       events: this.events,
       selectors: this.selectors,
       storeKey: this.getStoreKey(),
-      storeListener: this.storeListener
+      storeListener: this.storeListener,
     };
   }
 
@@ -92,9 +92,9 @@ class Griddle extends Component {
     }
 
     return (
-      <this.provider store={this.store}>
+      <Provider store={this.store}>
         <this.components.Layout />
-      </this.provider>
+      </Provider>
     );
   }
 }
