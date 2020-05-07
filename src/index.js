@@ -43,7 +43,7 @@ class Griddle extends Component {
       composeEnhancers(applyMiddleware(...reduxMiddleware))
     );
 
-    this.provider = createProvider(storeKey);
+    // this.provider = createProvider(storeKey);
 
     this.storeListener = new StoreListener(this.store);
     forIn(this.listeners, (listener, name) => {
